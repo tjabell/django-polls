@@ -1,0 +1,19 @@
+* install django as root
+#+begin_src sh
+  pip install django
+#+end_src
+* install mysql
+* setup mysql user
+#+begin_src sql
+  CREATE DATABASE mysite;
+  CREATE USER 'djangoapp'@'localhost' IDENTIFIED BY 'password';
+  GRANT ALL PRIVILEGES ON mysite.* TO 'djangoapp'@'localhost';
+#+end_src
+* install pymysql (python 3)
+#+begin_src sh
+  pip install pymysql
+#+end_src
+* install mysqlclient
+#+begin_src sh
+  pip install mysqlclient
+#+end_src
