@@ -24,9 +24,9 @@ class QuestionMethodTests(TestCase):
         False for questions whose pub date older than a day
         """
         time = timezone.now() - datetime.timedelta(days=30)
-        future_question = Question(pub_date=time)
+        old_question = Question(pub_date=time) # 
 
-        self.assertEqual(future_question.was_published_recently(), False)
+        self.assertEqual(old_question.was_published_recently(), False)
 
     def test_was_published_recently_with_recent(self):
         """
@@ -47,7 +47,7 @@ def create_question(question_text, days):
 class QuestionViewTests(TestCase):
     def test_index_view_with_no_questions(self):
         response = self.client.get(reverse('polls:index'))
-
+        
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No polls are available.")
 

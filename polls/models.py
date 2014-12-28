@@ -10,7 +10,7 @@ class Question(models.Model):
 
     def was_published_recently(self):
         now = timezone.now()
-        return datetime.timedelta(days=1) <= self.pub_date - now
+        return datetime.timedelta(days=1) >= now - self.pub_date >= datetime.timedelta(0)
 
     was_published_recently.admin_order_field = 'pub_date'
     was_published_recently.boolean = True
