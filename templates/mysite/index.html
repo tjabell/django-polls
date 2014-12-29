@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load bootstrap3 %}
+        {% bootstrap_css %}
+        <link href="" rel="stylesheet"/>
+        <title>{%block title %}Django Study{% endblock %}</title>
+    </head>
+    <body>
+        <div id="sidebar">
+            {% block sidebar %}
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/polls/">Polls</a></li>
+                <li><a href="/admin/">Admin</a></li>
+            </ul>
+            {% endblock %}
+        </div>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+    {% bootstrap_javascript %}
+</html>

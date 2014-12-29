@@ -1,13 +1,19 @@
-<p>{{ question.question_text }}</p>
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% load staticfiles %}
+<link href="{% static 'polls/style.css' %}" rel="stylesheet" type="text/css" />
+<div class="container">
+    <h2>{{ question.question_text }}</h2>
 
-<p>Results:</p>
-{% if error_message %}
-    <p>
-        <strong>{{error_message }}</strong>
-    </p>
-{% endif %}
-<ul>
-    {% for choice in question.choice_set.all %}
-        <li>{{ choice.choice_text }} -- {{ choice.votes }}</li>
-    {% endfor %}
-</ul>
+    <h3>Results:</h3>
+    {% if error_message %}
+        <p>
+            <strong>{{error_message }}</strong>
+        </p>
+    {% endif %}
+    <ul>
+        {% for choice in question.choice_set.all %}
+            <li>{{ choice.choice_text }} -- {{ choice.votes }}</li>
+        {% endfor %}
+    </ul>
+</div>
