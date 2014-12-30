@@ -1,8 +1,7 @@
-{% load bootstrap3 %}
-{% bootstrap_css %}
+{% extends "base.html" %}
 {% load staticfiles %}
 <link href="{% static 'polls/style.css' %}" rel="stylesheet" type="text/css" />
-<div class="container">
+{% block content %}
     <h2>{{ question.question_text }}</h2>
 
     <h3>Results:</h3>
@@ -16,4 +15,4 @@
             <li>{{ choice.choice_text }} -- {{ choice.votes }}</li>
         {% endfor %}
     </ul>
-</div>
+{% endblock %}

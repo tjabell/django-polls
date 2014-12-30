@@ -1,29 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {% load bootstrap3 %}
-        {% bootstrap_css %}
-        {% load staticfiles %}
-        <link href="" rel="stylesheet"/>
-        <title>{%block title %}Django Study{% endblock %}</title>
-    </head>
-    <body>
-        <div class="container-fluid">
-            <div class="navbar navbar-default">
-
-                {% block sidebar %}
-                    <ul class="nav navbar-nav">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/polls/">Polls</a></li>
-                        <li><a href="/admin/">Log in</a></li>
-                    </ul>
-                {% endblock %}
-            </div>
-            <div id="content">
-                {% block content %}{% endblock %}
-            </div>
-        </div>
-    </body>
-    <script src="{% static 'js/jquery.js' %}" type="text/javascript" />
-    {% bootstrap_javascript %}    
-</html>
+{% extends "base.html" %}
+<div id="content">
+    {% block content %}
+        Welcome to django polls!
+    {% endblock %}
+</div>
